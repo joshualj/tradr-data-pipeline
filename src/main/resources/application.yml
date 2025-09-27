@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+
+app:
+  tables:
+    ohcl: ${OHCL_TABLE}
+    market-cap: ${MARKET_CAP_TABLE}
+    merged: ${MERGED_TABLE}
+    log: ${LOG_TABLE}
