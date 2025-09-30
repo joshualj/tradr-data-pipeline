@@ -7,9 +7,9 @@ import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
 public class ForwardFilledDataCleaner {
-    public static void main(String[] args) {
-        ApplicationContext context = SpringApplication.run(ForwardFilledDataCleaner.class, args);
-        ForwardFilledCleanupService service = context.getBean(ForwardFilledCleanupService.class);
-        service.cleanUpData();
-    }
+//    public static void main(String[] args) {
+//        ApplicationContext context = SpringApplication.run(ForwardFilledDataCleaner.class, args);
+//        ForwardFilledCleanupService service = context.getBean(ForwardFilledCleanupService.class);
+//        service.cleanUpData();
+//    }
 }

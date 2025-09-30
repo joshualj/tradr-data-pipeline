@@ -9,13 +9,14 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
 import java.util.Optional;
 import java.util.Set;
 
 @Repository
 public interface AdjCloseMarketCapRepository extends JpaRepository<AdjCloseMarketCapEntity, CompositeStockId> {
-    @Query("SELECT DISTINCT a.compositeStockId.ticker FROM AdjCloseMarketCapEntity a WHERE a.marketCap < 0")
-    Set<String> findProblematicTickers();
+    @Query("SELECT DISTINCT a.compositeStockId.ticker FROM AdjCloseMarketCapEntity a WHERE a.marketCap < 0 OR a.marketCap > ?1")
+    Set<String> findProblematicTickers(BigDecimal marketCapLimit);
 
     @Transactional
     @Modifying

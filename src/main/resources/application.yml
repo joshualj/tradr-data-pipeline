@@ -9,4 +9,5 @@ app:
     ohcl: ${OHCL_TABLE}
     market-cap: ${MARKET_CAP_TABLE}
     merged: ${MERGED_TABLE}
+    temp-merged: ${TEMP_TABLE}
     log: ${LOG_TABLE}

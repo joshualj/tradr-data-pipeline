@@ -31,9 +31,9 @@ public class DataCleanupService {
         int ohclRowsAffected = ohclRepository.deleteByTickers(problematicOHCLTickers);
         System.out.printf(" - Successfully deleted %d records from OHCL table.\n", ohclRowsAffected);
 
-        // Step 3: Clean Market Cap data programmatically
         System.out.println(" - Finding and deleting records for tickers with negative market cap...");
-        Set<String> problematicTickers = adjCloseMarketCapRepository.findProblematicTickers();
+        BigDecimal marketCapThreshold = BigDecimal.valueOf(10_000_000_000_000L); // 10 trillion
+        Set<String> problematicTickers = adjCloseMarketCapRepository.findProblematicTickers(marketCapThreshold);
         if (!problematicTickers.isEmpty()) {
             System.out.printf(" - Found problematic tickers: %s\n", problematicTickers);
             int mcRowsAffected = adjCloseMarketCapRepository.deleteByTickers(problematicTickers);
